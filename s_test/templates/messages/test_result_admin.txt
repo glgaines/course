@@ -1,0 +1,5 @@
+Студент прошел тест "{{ test_name }}" на сайте Faunris.com
+
+Результаты теста:
+
+{{ test_result|safe }}

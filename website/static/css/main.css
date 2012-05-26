@@ -1,0 +1,251 @@
+body {
+    background: #fff url('//static-files.googlecode.com/hg/bg/0075.png');
+    margin: 0;
+    padding: 40px 0;
+    text-rendering: optimizeLegibility;
+}
+
+body, p, li {
+    font: 300 16px/24px "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;;
+}
+
+p, ul, ol {
+    margin: 12px 0;
+    padding: 0 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #202020;
+    font: 300 21.3px/24px Verdana, Geneva, sans-serif;;
+    margin: 12px 0 0;
+    padding: 0 10px;
+}
+
+h1, h2 {
+    color: #303030;
+    letter-spacing: -1px;
+    line-height: 48px;
+}
+
+h1 {
+    font-family: Cambria, Georgia, serif;;
+    font-size: 48px;
+    text-align: left;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h4, h5, h6 {
+    font-variant: small-caps;
+    font-weight: 400;
+    letter-spacing: 1px;
+    top: -2px;
+}
+
+a {
+    border-color: #fa6900;
+    border-width: 1px;
+    color: #fa6900;
+    text-decoration: none;
+;
+}
+
+a:hover {
+    border-color: #fa6900;
+    color: #fa6900;
+    text-decoration: none;
+}
+
+a.image, a.image:hover, .randomizr-link a, .randomizr-link a:hover {
+    border: none;
+    text-decoration: none;
+}
+
+abbr {
+    font-variant: small-caps;
+    text-transform: lowercase;
+}
+
+img {
+    vertical-align: bottom;
+}
+
+iframe {
+    display: block;
+}
+
+.wrapper {
+    background: rgba(255,255,255,.4);
+    border: 8px solid transparent;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    -moz-box-shadow: 0px 0px 8px rgba(0,0,0,.4);
+    -webkit-box-shadow: 0px 0px 8px rgba(0,0,0,.4);
+    box-shadow: 0px 0px 8px rgba(0,0,0,.4);
+}
+
+.page {
+    background: #fbfbfb;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    color: #101010;
+    padding: 12px 0;
+}
+
+.heading {
+    border-bottom: 1px solid #909090;
+    margin-bottom: 12px;
+    padding-bottom: 24px;
+}
+
+.footer {
+    border-top: 1px solid #909090;
+    margin-top: 12px;
+    padding-top: 12px;
+}
+
+.footer p {
+    font-size: 14px;
+    text-align: center;
+}
+
+.tagline {
+    font-style: normal;
+    text-align: left;
+}
+
+.randomizr-link {
+    line-height: 64px;
+    margin: 12px 0;
+}
+
+.nobr {
+    white-space: nowrap;
+}
+
+a.link  {
+    color: #303030;
+
+}
+
+.TestQuestions
+{
+    width: 100%;
+    margin: 1em 0 0 0;
+}
+.TestQuestions ul
+{
+    padding: 0;
+    margin: 0;
+    position: relative;
+    left: -0.7em;
+}
+.TestQuestions li
+{
+    width: 100%;
+    text-indent: 0;
+    display: block;
+    position: relative;
+    font-size: 1.1em;
+    padding: 0 !important;
+}
+.TestQuestions input
+{
+    position: relative;
+    top: 1px;
+}
+.TestQuestions label
+{
+    width: 98%;
+    display: inline-block;
+    padding: 0.8em 0 0.8em 0.5em;
+    cursor: pointer;
+    position: relative;
+}
+.TestQuestions label:hover
+{
+    background: #eee;
+}
+.TestQuestions li:before
+{
+    content: "";
+}
+
+.TestQuestionsButton
+{
+    padding: 0.5em 0 0 0;
+}
+.TestQuestionsButton input
+{
+    font-size: 1em;
+    padding: 0.2em 1em;
+    cursor: pointer;
+}
+.TestProgressBar
+{
+    cursor: default;
+    padding: 0 0 0 0.2em;
+}
+.TestProgressLine
+{
+    width: 100%;
+    overflow: hidden;
+    margin: 2em 0 0 0;
+}
+.TestProgressLineItem
+{
+    width: 13px;
+    height: 13px;
+    float: left;
+    background: #ccc;
+    margin: 0 5px 0 0;
+}
+.TestProgressLineItem a
+{
+    width: 13px;
+    height: 13px;
+    text-decoration: none;
+    display: block;
+}
+.TestProgressLine .Active
+{
+    background: #777;
+}
+.TestProgressInfo
+{
+    font-size: 0.8em;
+    color: #666;
+    padding: 0.5em 0 0 0;
+}
+.ButtonOnPage
+{
+    width: 50% !important;
+}
+.TestEmail
+{
+    width: 100%;
+    margin: 1em 0 0 0;
+}
+.TestEmail ul
+{
+    padding: 0;
+    margin: 0;
+}
+.TestEmail li
+{
+    width: 100%;
+}
+.TestEmail label
+{
+    font-size: 0.8em;
+    color: #666;
+    padding: 0 0.5em 0 0;
+}

@@ -1,0 +1,5 @@
+Вы прошли тест "{{ test_name }}" на сайте Faunris.com
+
+Результаты вашего теста:
+
+{{ test_result|safe }}

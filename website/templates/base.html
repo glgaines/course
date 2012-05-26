@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru-ru">
+    <head>
+        <meta charset="utf-8">
+        <title>{{ request.settings.project }}{% block title %}{% if request.page.title %} — {{ request.page.title }}{% endif %}{% endblock %}</title>
+        {% block meta %}{{ request.page.meta|default:""|safe }}{% endblock %}
+
+        <meta name="robots" content="{% if request.get_host == 'faunris.com' %}none{% else %}index,follow{% endif %}" />
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon.ico" />
+
+        <link rel="stylesheet" href="//static-files.googlecode.com/hg/normalize.css">
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/main.css">
+        <noscript>
+            <link rel="stylesheet" href="{{ STATIC_URL }}css/mobile.min.css" />
+        </noscript>
+        {% block css %}{% endblock %}
+    </head>
+    <body>
+    <div class="wrapper container_12">
+        <div class="page">
+            <div class="heading grid_12">
+                <h1>Проект <strong><a href="/" class="link">{{ PROJECT_TITLE }}</a></strong></h1>
+                <h3 class="tagline">Разработка и внендрение ништяков от еврея -)</h3>
+            </div>
+            <div class="clear"></div>
+            <div class="sidebar grid_3">
+                <h4>таки меню!</h4>
+                {%  for item in menu %}
+                    <p><a href="{{ item.get_absolute_url }}">{{ item }}</a></p>
+                {% endfor %}
+                <h5>связь</h5>
+                <p><a href="http://vk.com/faunris" target="_blank">VKontakte</a></p>
+                <p><a href="http://twitter.com/faunris" target="_blank">Twitter</a></p>
+                <!--<p><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://animuchan.net/randomizr/?saved=MTE3ODU5" data-via="ayanami_rei" data-count="none" data-hashtags="Web,Design">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></p>-->
+                <!--<p><strong><a href="http://animuchan.net/randomizr/?get=MTE3ODU5">Download</a></strong></p>-->
+
+            </div>
+            <div class="main grid_9">
+                {% block content %}
+                    {{ page.content }}
+                {% endblock %}
+            </div>
+
+            <div class="clear"></div>
+            <div class="footer grid_12">
+                <p>© Faunris inc</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <script>
+        var ADAPT_CONFIG = {
+            path: '{{ STATIC_URL }}css/',
+            dynamic: true,
+            range: [
+                '0px    to 760px  = mobile.min.css',
+                '760px  to 980px  = 720.min.css',
+                '980px  to 1280px = 960.min.css',
+                '1280px to 1600px = 1200.min.css',
+                '1600px to 1940px = 1560.min.css',
+                '1940px to 2540px = 1920.min.css',
+                '2540px           = 2520.min.css'
+            ]
+        };
+    </script>
+    <script src="{{ STATIC_URL }}js/adapt.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.min.js"></script>
+    {% block js %}{% endblock %}
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<h3>{{ test_detail.name }}</h3>
+
+{% if current_question == 1 %}
+	{{ test_detail.comments|safe }}
+{% endif %}
+
+
+<div class="TestQuestions GrayLight" id ="TestForm">
+	<form action="?q={{ next_question }}" method="post">
+		{% csrf_token %}
+		<div class="RoundedCoroners">
+			<div class="cn tl"></div>
+			<div class="cn tr"></div>
+			<div class="RoundedCoronersContent">
+				<h4>{{ question_detail.title }}</h4>
+				{{ question_detail.comment|safe }}
+				{{ answer_form }}
+				<div class="TestQuestionsButton">
+					<input type="submit" value="Далее" />
+				</div>
+
+				<div class="TestProgressBar">
+					<div class="TestProgressLine">
+						{% for link in question_list %}
+							{% if link in available_questions %}
+								<span class="TestProgressLineItem {% if link == current_question %}Active{% endif %}"><a href="?q={{ link }}">&nbsp;</a></span>
+							{% else %}
+								<span class="TestProgressLineItem">&nbsp;</span>
+							{% endif %}
+						{% endfor %}
+					</div>
+					<div class="TestProgressInfo">Выполнено {{ progress }} %</div>
+				</div>
+
+			</div>
+			<div class="cn bl"></div>
+			<div class="cn br"></div>
+		</div>
+	</form>
+</div>
+
+

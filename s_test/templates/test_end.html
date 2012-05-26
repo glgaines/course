@@ -1,0 +1,49 @@
+{% load website_tags %}
+
+<h1>Вы набрали {{ score }} (из {{ max_score }}) {{ score|morph:"балл,балла,баллов" }}</h1> 
+{{ result|safe }}
+{% comment %}
+<div class="ButtonSelect ButtonOnPage">
+	<div class="Line T"></div>
+	<div class="Line B"></div>
+	<div class="Coroner LT"></div>
+	<div class="Coroner RT"></div>
+	<div class="Coroner LB"></div>
+	<div class="Coroner RB"></div>
+	<div class="ButtonSelectText">
+		<span class="ButtonMenu">
+			<a class="QuestionPopupForm" href="/question/">Задать вопрос</a>
+		</span>
+	</div>
+</div>{% endcomment %}
+
+			{% if send %}
+				<p>Письмо с результатами успешно отправлено</p>
+			{% else %}
+				<h3>Продублировать результаты на e-mail</h3>
+                <h6>В противном случае результат не будет засчитан</h6>
+				<form action="" method="post" class="EmailForm">
+					{% csrf_token %}
+					<ul>
+						{{ form.as_eul }}
+					</ul>
+					<div class="TestQuestionsButton">
+						<input type="submit" value="Отправить" />
+					</div>
+				</form>
+			{% endif %}
+
+
+
+<div class="TestProgressBar" style="display: none">
+	<div class="TestProgressLine">
+		{% for link in question_list %}
+			{% if link in available_questions %}
+				<span class="TestProgressLineItem {% if link == current_question %}Active{% endif %}"><a href="?q={{ link }}">&nbsp;</a></span>
+			{% else %}
+				<span class="TestProgressLineItem">&nbsp;</span>
+			{% endif %}
+		{% endfor %}
+	</div>
+	<div class="TestProgressInfo">Выполнено {{ progress }} %</div>
+</div>
