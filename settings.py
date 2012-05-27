@@ -85,10 +85,11 @@ INSTALLED_APPS = (
     'filebrowser',
     'pages',
     's_test',
-    'django.contrib.admin',
-    'django.contrib.admindocs',
     'accounts',
     'registration',
+    'django.contrib.admin',
+    'django.contrib.admindocs',
+
 )
 ADMIN_MEDIA_PREFIX = STATIC_URL + "grappelli/"
 AUTH_PROFILE_MODULE = 'accounts.UserProfile'
