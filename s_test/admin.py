@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
-from django import forms
+
 from django.db import models
 from django.forms import TextInput
 
 
 from s_test.models import (Test, TestQuestion, TestAnswer, TestScale, TestResult, )
 
-from pages.models import Page
+
 
 class TestScaleInline(admin.TabularInline):
     model = TestScale
@@ -22,7 +22,7 @@ class AdminTest(admin.ModelAdmin):
     #list_editable = ('pages', )
     fieldsets = [
         (None, {
-            'fields': ['name', 'comments']
+            'fields': ['name', 'pages', 'comments']
         }),
     ]
     inlines = [

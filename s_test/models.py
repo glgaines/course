@@ -3,11 +3,14 @@
 from django.db import models
 from django.utils.safestring import mark_safe
 from django.utils.html import strip_tags
+
 from tinymce import models as tinymce_models
+from pages.models import Page
 
 class Test(models.Model):
     name = models.CharField(u'Название', max_length=255)
     comments = tinymce_models.HTMLField(u'Описание', blank=True, default='')
+    pages = models.ForeignKey(Page, verbose_name=u'Привязка к странице', blank=True, null=True, related_name='tests')
     test_result = tinymce_models.HTMLField(u'Текст на странице результатов', blank=True, default='')
 
     def get_busy_name(self):

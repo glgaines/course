@@ -1,4 +1,4 @@
-import os
+
 from local_settings import *
 import site
 site.addsitedir('/home/faunris/modules')
@@ -28,9 +28,7 @@ STATIC_ROOT = '%s/public/static/' % PROJECT_DIR
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+
 )
 
 # List of finder classes that know how to find static files in
@@ -57,7 +55,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #'pages.middleware.PageMiddleware',
+    'pages.middleware.PageMiddleware',
 )
 
 ROOT_URLCONF = 'urls'#'%s.urls' % PROJECT_NAME
@@ -70,7 +68,7 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 )
-
+ACCOUNT_ACTIVATION_DAYS = 2
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -89,8 +87,12 @@ INSTALLED_APPS = (
     's_test',
     'django.contrib.admin',
     'django.contrib.admindocs',
+    'accounts',
+    'registration',
 )
 ADMIN_MEDIA_PREFIX = STATIC_URL + "grappelli/"
+AUTH_PROFILE_MODULE = 'accounts.UserProfile'
+LOGIN_REDIRECT_URL = 'accounts/profile/'
 GRAPPELLI_ADMIN_TITLE = PROJECT_TITLE
 
 TINYMCE_DEFAULT_CONFIG = {

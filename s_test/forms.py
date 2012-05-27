@@ -31,5 +31,5 @@ class TestAnswerCheckBoxForm(forms.Form):
 
 class TestEmailForm(forms.ModelForm):
     class Meta:
-        fields = ('email','fio','group')
+        fields = ('fio','group')
         model = TestResult

@@ -54,6 +54,8 @@ class Migration(SchemaMigration):
             ('result', self.gf('tinymce.models.HTMLField')()),
             ('date', self.gf('django.db.models.fields.DateTimeField')()),
             ('email', self.gf('django.db.models.fields.EmailField')(default='', max_length=75, blank=True)),
+            ('fio', self.gf('django.db.models.fields.CharField')(max_length=255)),
+            ('group', self.gf('django.db.models.fields.CharField')(max_length=255)),
         ))
         db.send_create_signal('s_test', ['TestResult'])
 
@@ -103,6 +105,8 @@ class Migration(SchemaMigration):
             'Meta': {'object_name': 'TestResult'},
             'date': ('django.db.models.fields.DateTimeField', [], {}),
             'email': ('django.db.models.fields.EmailField', [], {'default': "''", 'max_length': '75', 'blank': 'True'}),
+            'fio': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'group': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'result': ('tinymce.models.HTMLField', [], {}),
             'test': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['s_test.Test']"})

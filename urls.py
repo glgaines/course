@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-from website.views import IndexView, BaseView
+from website.views import IndexView, PageView
 from filebrowser.sites import site
 from django.contrib import admin
 admin.autodiscover()
@@ -7,7 +7,8 @@ admin.autodiscover()
 
 # Includes
 urlpatterns = patterns('',
-    (r'^test/', include('s_test.urls')),
+    (r'^accounts/', include('accounts.urls')),
+    #(r'^test/', include('s_test.urls')),
     (r'^tinymce/', include('tinymce.urls')),
     (r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/filebrowser/', include(site.urls)),
@@ -22,7 +23,7 @@ urlpatterns += patterns('',
     #url(r'^music/Media/[\w.]*$', redirect_to, {'url': '/media/filtersourcesound.mp3'}),
     # url(r'^study/', include('study.foo.urls')),
 
-    #url(r'^(?P<page_url>.*?)[/]?$', BaseView.as_view(), name="page"),
+    (r'^(?P<page_url>.*?)[/]?$', PageView.as_view()),
 )
 
 ##includes

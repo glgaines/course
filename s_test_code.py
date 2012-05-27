@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
 import datetime
 
-from django.http import Http404, HttpResponse, HttpResponseRedirect
-from django.shortcuts import (render_to_response, redirect, render, get_object_or_404)
-from django.core.mail import send_mail, EmailMessage
+
+from django.shortcuts import get_object_or_404
+from django.core.mail import  EmailMessage
 from django.template import RequestContext
 from django.template.loader import get_template, render_to_string
 from django.conf import settings
-from django.utils.safestring import mark_safe
-from django.utils.html import strip_tags
+
 from website.models import Settings
 from s_test.models import (Test as ModelTest, TestAnswer, TestResult, )
 from s_test.forms import (TestAnswerRadioForm, TestAnswerCheckBoxForm, TestEmailForm, )
@@ -121,17 +120,20 @@ def get_test_result(test_detail, result, parameters, local_context, request, que
         request.session['test_result_id']= test_result.id
         parameters['test_result'] = True
         request.session[test_detail.get_busy_name()] = parameters
-    
-    form = TestEmailForm()
+    profile = request.user.get_profile()
+    form = TestEmailForm(initial={
+        'fio': '%s %s' % (request.user.first_name, request.user.last_name),
+        'group': '%s' % (profile.study_group),
+    })
     if request.method == 'POST':
         parameters['prev_post'] = request.POST
         request.session[test_detail.get_busy_name()] = parameters
     else:
-        if 'email' in parameters['prev_post']:
+        if 'fio' in parameters['prev_post']:
             form = TestEmailForm(data=parameters['prev_post'])
         if form.is_valid():
             test_result = get_object_or_404(TestResult, id=request.session['test_result_id'])
-            test_result.email = form.data['email']
+            test_result.email = request.user.email
             test_result.fio = form.data['fio']
             test_result.group = form.data['group']
             test_result.save()
@@ -141,7 +143,7 @@ def get_test_result(test_detail, result, parameters, local_context, request, que
             msg = EmailMessage(u'Результаты теста %s' % (test_detail.name, ),
                       message,
                 settings.DEFAULT_FROM_EMAIL,
-                      (form.data['email'], ))
+                      (request.user.email, ))
             msg.content_subtype = "html"  # Main content is now text/html
             msg.send()
             message1 = render_to_string('messages/test_result_admin.txt', {'test_name' : test_detail.name,
