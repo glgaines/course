@@ -24,7 +24,7 @@ USE_TZ = True
 MEDIA_ROOT = '%s/public/media/' % PROJECT_DIR
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = '%s/public/static/' % PROJECT_DIR
+STATIC_ROOT = 'http://dl.dropbox.com/u/15834380/static/'#'%s/public/static/' % PROJECT_DIR
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
