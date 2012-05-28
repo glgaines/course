@@ -43,7 +43,7 @@
             <div class="clear"></div>
             <div class="sidebar grid_3">
                 <h4>таки меню!</h4>
-                {%  for item in menu %}
+                {%  for item in request.menu %}
                     <p><a href="{{ item.get_absolute_url }}">{{ item }}</a></p>
                 {% endfor %}
                 <h5>связь</h5>
