@@ -32,7 +32,6 @@ class BaseView(TemplateView):
         kwargs['ancestors'] = list(self.page.get_ancestors()) + [self.page]
         kwargs['page'] = self.page
         context.update(kwargs)
-        context['menu'] = Page.objects.filter(level__lte=1)
         context['PROJECT_TITLE'] = settings.PROJECT_TITLE
         context['settings'] = settings
         context['redirect_field_name'] = REDIRECT_FIELD_NAME
