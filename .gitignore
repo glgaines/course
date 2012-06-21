@@ -23,12 +23,11 @@ pip-log.txt
 #Translations
 *.mo
 
-#Mr Developer
-.mr.developer.cfg
+#pycharm
+.idea
 
 /db
 /public/media
 /public/static
 local_settings.py
-/public/static/*
-/public/media/*
+

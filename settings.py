@@ -1,8 +1,8 @@
 
 from local_settings import *
 import site
-site.addsitedir('/home/faunris/modules')
-site.addsitedir('/home/faunris/venv/lib/python2.6/ste-packeges')
+#site.addsitedir('/home/faunris/modules')
+#site.addsitedir('/home/faunris/venv/lib/python2.6/ste-packeges')
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
