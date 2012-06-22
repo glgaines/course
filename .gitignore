@@ -29,5 +29,5 @@ pip-log.txt
 /db
 /public/media
 /public/static
-local_settings.py
+settings_local.py
 

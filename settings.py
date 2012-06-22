@@ -1,8 +1,4 @@
-
-from local_settings import *
-import site
-#site.addsitedir('/home/faunris/modules')
-#site.addsitedir('/home/faunris/venv/lib/python2.6/ste-packeges')
+import os, sys
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -11,6 +7,10 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
+
+PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
+PROJECT_DIR, PROJECT_NAME = os.path.split(PROJECT_PATH)
+PROJECT_TITLE = 'Faunris inc'
 
 TIME_ZONE = 'Asia/Yekaterinburg'
 LANGUAGE_CODE = 'ru-ru'
@@ -21,10 +21,10 @@ USE_L10N = True
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
 
-MEDIA_ROOT = '%s/public/media/' % PROJECT_DIR
+MEDIA_ROOT = os.path.join(PROJECT_PATH,'public', 'static')
 MEDIA_URL = '/media/'
 
-STATIC_ROOT = ''
+STATIC_ROOT = os.path.join(PROJECT_PATH,'public', 'media')
 STATIC_URL = 'http://dl.dropbox.com/u/15834380/static/'
 
 STATICFILES_DIRS = (
@@ -70,7 +70,7 @@ TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
 
 ROOT_URLCONF = 'urls'#'%s.urls' % PROJECT_NAME
 
-WSGI_APPLICATION = '%s.wsgi.application' % PROJECT_NAME
+WSGI_APPLICATION = 'wsgi.application'
 
 TEMPLATE_DIRS = (
     '%s/templates' % PROJECT_DIR,
@@ -147,3 +147,7 @@ LOGGING = {
     }
 }
 
+try:
+    from settings_local import *
+except ImportError:
+    pass
