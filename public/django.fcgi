@@ -15,7 +15,7 @@ for dir in glob.glob(os.environ['VIRTUAL_ENV'] + '/src/*'):
         site.addsitedir(dir)
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings")
-_PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
+_PROJECT_PATH = os.path.realpath(os.path.dirname(os.path.dirname(__file__)))
 _PROJECT_DIR, _PROJECT_NAME =  os.path.split(_PROJECT_PATH)
 
 sys.path.insert(0, _PROJECT_PATH)
